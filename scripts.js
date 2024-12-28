@@ -10,8 +10,12 @@ function checklogin() {
   const loginButton = document.getElementById("loginButton");
 
   // Check for the presence of both userAccessToken and userRefreshToken
-  const accessToken = localStorage.getItem("userAccessToken");
-  const refreshToken = localStorage.getItem("userRefreshToken");
+  // Retrieve the access token from local storage
+  const data = localStorage.getItem("user");
+  const accessToken = data;
+
+  // Retrieve the refresh token from local storage
+  const refreshToken = data;
 
   if (accessToken && refreshToken) {
     loginButton.textContent = "Dashboard";
@@ -84,14 +88,15 @@ function renderPagination(currentPage, totalPages) {
   if (currentPage < totalPages) {
     const nextButton = document.createElement("button");
     nextButton.textContent = "Next";
-    nextButton.onclick = () => fetchProperties(parseInt(currentPage) + 1, searchQuery);
+    nextButton.onclick = () =>
+      fetchProperties(parseInt(currentPage) + 1, searchQuery);
     paginationContainer.appendChild(nextButton);
   }
 }
 
 // Save search query to the backend
 async function saveSearchQuery(searchQuery) {
-  const token = localStorage.getItem("userAccessToken");
+  const token = localStorage.getItem("generatedaccessToken");
   try {
     const response = await fetch(
       "https://xenon-backend-1p9n.onrender.com/api/v1/user/savequery",
@@ -99,7 +104,7 @@ async function saveSearchQuery(searchQuery) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ searchQuery }),
         credentials: "include", // Send search query to backend

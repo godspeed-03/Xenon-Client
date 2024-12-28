@@ -1,16 +1,19 @@
-const userData = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("user"));
+const userData = user.loggedInUser
+
+console.log(userData)
 
 if (userData) {
-  document.getElementById("fullName").textContent = userData.user.fullName;
-  document.getElementById("email").textContent = userData.user.email;
+  document.getElementById("fullName").textContent = userData.fullName;
+  document.getElementById("email").textContent = userData.email;
 
-  const verificationStatus = userData.user.isVerified
+  const verificationStatus = userData.isVerified
     ? "Verified"
     : "Not Verified";
   document.getElementById("verificationStatus").textContent =
     verificationStatus;
 
-  document.getElementById("avatar").src = userData.user.avatar;
+  document.getElementById("avatar").src = userData.avatar;
 
   document.getElementById("logoutButton").addEventListener("click", () => {
     localStorage.removeItem("user");
