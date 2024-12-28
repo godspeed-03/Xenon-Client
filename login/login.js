@@ -33,6 +33,15 @@ loginForm.addEventListener("submit", async (e) => {
       setTimeout(() => {
         window.location.href = "../index.html"; // Redirect to the main page
       }, 2000); // 2-second delay before redirect
+    } else if (response.status === 203) {
+      responseMessage.style.color = "gray";
+      responseMessage.textContent =
+        "User is not verified, Redirecting to verfify Otp";
+
+      setTimeout(() => {
+        window.location.href =
+          "./verify.html?email=" + encodeURIComponent(data.data.email);
+      }, 1000); // Redirect after 2 seconds delay
     } else {
       responseMessage.style.color = "red";
       responseMessage.textContent = data.message || "Login failed!";
