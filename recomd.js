@@ -2,7 +2,7 @@
 async function fetchRecommendedProperties() {
   try {
     const response = await fetch(
-      "http://localhost:3700/api/v1/user/getrecomdation",
+      "https://xenon-backend-1p9n.onrender.com/api/v1/user/getrecomdation",
       {
         method: "POST",
         headers: {
@@ -28,7 +28,7 @@ async function fetchRecommendedProperties() {
 
 function displayRecommendedProperties(properties) {
   const recommendedSection = document.getElementById("recomended");
-  recommendedSection.innerHTML = ""; 
+  recommendedSection.innerHTML = "";
   if (properties.length === 0) {
     recommendedSection.innerHTML =
       "<p>No recommendations available at this time.</p>";

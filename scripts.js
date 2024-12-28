@@ -29,7 +29,7 @@ function checklogin() {
 
 async function fetchProperties(page = 1, search = "") {
   const limit = 15; // Number of properties per page
-  const url = `http://localhost:3700/api/v1/prop/properties?page=${page}&limit=${limit}&search=${search}`;
+  const url = `https://xenon-backend-1p9n.onrender.com/api/v1/prop/properties?page=${page}&limit=${limit}&search=${search}`;
 
   try {
     const response = await fetch(url);
@@ -93,7 +93,7 @@ function renderPagination(currentPage, totalPages) {
 async function saveSearchQuery(searchQuery) {
   try {
     const response = await fetch(
-      "http://localhost:3700/api/v1/user/savequery",
+      "https://xenon-backend-1p9n.onrender.com/api/v1/user/savequery",
       {
         method: "POST",
         headers: {
