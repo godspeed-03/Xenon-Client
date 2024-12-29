@@ -23,7 +23,7 @@ The **Xenon User Authentication System** is a secure, user-friendly web-based ap
     
     *   Users can sign up by entering their name, email, password, and uploading an avatar.
         
-    *   The system validates the email format and password strength.
+    *   The system validates the email format
         
     *   Upon successful registration, users are redirected to an OTP verification page.
         
@@ -92,7 +92,7 @@ The **Xenon User Authentication System** is a secure, user-friendly web-based ap
     
     *   **Render**: Used to host the backend API.
         
-    *   **Netlify/Other Services**: For deploying the frontend application.
+    *   **VERCEL**: For deploying the frontend application.
         
 5.  **Version Control**:
     
